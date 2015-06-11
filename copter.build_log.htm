@@ -1,0 +1,238 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\zhumj1991\Desktop\freertos\copter.uvproj
+Project File Date:  04/25/2015
+
+<h2>Output:</h2>
+Build target 'Flash'
+compiling main.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+init\main.c(20): error:  #268: declaration may not appear after executable statement in block
+          GPIO_InitTypeDef GPIO_InitStructure;
+init\main.c(51): warning:  #191-D: type qualifier is meaningless on cast type
+    xTaskCreate( vLEDTask, (const signed char * const) "LED",
+init\main.c(51): warning:  #167-D: argument of type "const signed char *" is incompatible with parameter of type "const char *const"
+    xTaskCreate( vLEDTask, (const signed char * const) "LED",
+init\main.c: 3 warnings, 1 error
+assembling startup_stm32f40_41xxx.s...
+compiling system_stm32f4xx.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\CMSIS\src\system_stm32f4xx.c: 1 warning, 0 errors
+compiling misc.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\misc.c: 1 warning, 0 errors
+compiling stm32f4xx_adc.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c: 1 warning, 0 errors
+compiling stm32f4xx_can.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.c: 1 warning, 0 errors
+compiling stm32f4xx_crc.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.c: 1 warning, 0 errors
+compiling stm32f4xx_cryp.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c: 1 warning, 0 errors
+compiling stm32f4xx_cryp_aes.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.c: 1 warning, 0 errors
+compiling stm32f4xx_cryp_des.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.c: 1 warning, 0 errors
+compiling stm32f4xx_cryp_tdes.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.c: 1 warning, 0 errors
+compiling stm32f4xx_dac.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c: 1 warning, 0 errors
+compiling stm32f4xx_dbgmcu.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.c: 1 warning, 0 errors
+compiling stm32f4xx_dcmi.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c: 1 warning, 0 errors
+compiling stm32f4xx_dma.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.c: 1 warning, 0 errors
+compiling stm32f4xx_dma2d.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c: 1 warning, 0 errors
+compiling stm32f4xx_exti.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.c: 1 warning, 0 errors
+compiling stm32f4xx_flash.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c: 1 warning, 0 errors
+compiling stm32f4xx_fmc.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(138): error:  #20: identifier "FMC_Bank1" is undefined
+      FMC_Bank1->BTCR[FMC_Bank] = 0x000030DB;    
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(143): error:  #20: identifier "FMC_Bank1" is undefined
+      FMC_Bank1->BTCR[FMC_Bank] = 0x000030D2; 
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(145): error:  #20: identifier "FMC_Bank1" is undefined
+    FMC_Bank1->BTCR[FMC_Bank + 1] = 0x0FFFFFFF;
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(146): error:  #20: identifier "FMC_Bank1E" is undefined
+    FMC_Bank1E->BWTR[FMC_Bank] = 0x0FFFFFFF;  
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(185): error:  #20: identifier "FMC_Bank1" is undefined
+    FMC_Bank1->BTCR[FMC_NORSRAMInitStruct->FMC_Bank] =   
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(236): error:  #20: identifier "FMC_Bank1E" is undefined
+      FMC_Bank1E->BWTR[FMC_NORSRAMInitStruct->FMC_Bank] =   
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(246): error:  #20: identifier "FMC_Bank1E" is undefined
+      FMC_Bank1E->BWTR[FMC_NORSRAMInitStruct->FMC_Bank] = 0x0FFFFFFF;
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(310): error:  #20: identifier "FMC_Bank1" is undefined
+      FMC_Bank1->BTCR[FMC_Bank] |= BCR_MBKEN_SET;
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(315): error:  #20: identifier "FMC_Bank1" is undefined
+      FMC_Bank1->BTCR[FMC_Bank] &= BCR_MBKEN_RESET;
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(383): error:  #20: identifier "FMC_Bank2" is undefined
+      FMC_Bank2->PCR2 = 0x00000018;
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(392): error:  #20: identifier "FMC_Bank3" is undefined
+      FMC_Bank3->PCR3 = 0x00000018;
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(451): error:  #20: identifier "FMC_Bank2" is undefined
+      FMC_Bank2->PCR2 = tmppcr;
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(458): error:  #20: identifier "FMC_Bank3" is undefined
+      FMC_Bank3->PCR3 = tmppcr;
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(510): error:  #20: identifier "FMC_Bank2" is undefined
+        FMC_Bank2->PCR2 |= PCR_PBKEN_SET;
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(514): error:  #20: identifier "FMC_Bank3" is undefined
+        FMC_Bank3->PCR3 |= PCR_PBKEN_SET;
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(522): error:  #20: identifier "FMC_Bank2" is undefined
+        FMC_Bank2->PCR2 &= PCR_PBKEN_RESET;
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(526): error:  #20: identifier "FMC_Bank3" is undefined
+        FMC_Bank3->PCR3 &= PCR_PBKEN_RESET;
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(550): error:  #20: identifier "FMC_Bank2" is undefined
+        FMC_Bank2->PCR2 |= PCR_ECCEN_SET;
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(554): error:  #20: identifier "FMC_Bank3" is undefined
+        FMC_Bank3->PCR3 |= PCR_ECCEN_SET;
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(562): error:  #20: identifier "FMC_Bank2" is undefined
+        FMC_Bank2->PCR2 &= PCR_ECCEN_RESET;
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(566): error:  #20: identifier "FMC_Bank3" is undefined
+        FMC_Bank3->PCR3 &= PCR_ECCEN_RESET;
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(586): error:  #20: identifier "FMC_Bank2" is undefined
+      eccval = FMC_Bank2->ECCR2;
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(591): error:  #20: identifier "FMC_Bank3" is undefined
+      eccval = FMC_Bank3->ECCR3;
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(646): error:  #20: identifier "FMC_Bank4" is undefined
+    FMC_Bank4->PCR4 = 0x00000018; 
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(682): error:  #20: identifier "FMC_Bank4" is undefined
+    FMC_Bank4->PCR4 = (uint32_t)FMC_PCCARDInitStruct->FMC_Waitfeature |
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(745): error:  #20: identifier "FMC_Bank4" is undefined
+      FMC_Bank4->PCR4 |= PCR_PBKEN_SET;
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(750): error:  #20: identifier "FMC_Bank4" is undefined
+      FMC_Bank4->PCR4 &= PCR_PBKEN_RESET;
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(815): error:  #20: identifier "FMC_Bank5_6" is undefined
+    FMC_Bank5_6->SDCR[FMC_Bank] = 0x000002D0;
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(874): error:  #20: identifier "FMC_Bank5_6" is undefined
+      FMC_Bank5_6->SDCR[FMC_SDRAMInitStruct->FMC_Bank] = tmpr1;
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(882): error:  #20: identifier "FMC_Bank5_6" is undefined
+      FMC_Bank5_6->SDCR[FMC_Bank1_SDRAM] = tmpr3;
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c: 1 warning, 30 errors
+compiling stm32f4xx_fsmc.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c: 1 warning, 0 errors
+compiling stm32f4xx_gpio.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c: 1 warning, 0 errors
+compiling stm32f4xx_hash.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c: 1 warning, 0 errors
+compiling stm32f4xx_hash_md5.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.c: 1 warning, 0 errors
+compiling stm32f4xx_hash_sha1.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.c: 1 warning, 0 errors
+compiling stm32f4xx_i2c.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.c: 1 warning, 0 errors
+compiling stm32f4xx_iwdg.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.c: 1 warning, 0 errors
+compiling stm32f4xx_ltdc.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c: 1 warning, 0 errors
+compiling stm32f4xx_pwr.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c: 1 warning, 0 errors
+compiling stm32f4xx_rcc.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c: 1 warning, 0 errors
+compiling stm32f4xx_rng.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.c: 1 warning, 0 errors
+compiling stm32f4xx_rtc.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.c: 1 warning, 0 errors
+compiling stm32f4xx_sai.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sai.c: 1 warning, 0 errors
+compiling stm32f4xx_sdio.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.c: 1 warning, 0 errors
+compiling stm32f4xx_spi.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c: 1 warning, 0 errors
+compiling stm32f4xx_syscfg.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.c: 1 warning, 0 errors
+compiling stm32f4xx_tim.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c: 1 warning, 0 errors
+compiling stm32f4xx_usart.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c: 1 warning, 0 errors
+compiling stm32f4xx_wwdg.c...
+.\lib\CMSIS\include\stm32f4xx.h(88): warning:  #47-D: incompatible redefinition of macro "STM32F40_41xxx"
+    #define STM32F40_41xxx
+lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.c: 1 warning, 0 errors
+compiling heap_2.c...
+compiling port.c...
+lib\FreeRTOS\portable\RVDS\ARM_CM4F\port.c(490): warning: A1581W: Added 2 bytes of padding at address 0xa2
+compiling croutine.c...
+compiling list.c...
+compiling queue.c...
+compiling tasks.c...
+lib\FreeRTOS\tasks.c(414): warning:  #177-D: function "prvTaskIsTaskSuspended" was declared but never referenced
+  static BaseType_t prvTaskIsTaskSuspended( const TaskHandle_t xTask ) PRIVILEGED_FUNCTION;
+lib\FreeRTOS\tasks.c: 1 warning, 0 errors
+compiling timers.c...
+".\bin\obj\copter.axf" - 31 Error(s), 41 Warning(s).
+Target not created
