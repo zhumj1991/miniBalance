@@ -32,6 +32,7 @@
 
 #include "uart_syslink.h"
 #include "esp8266.h"
+#include "adc.h"
 //#include "nrf24l01.h"
 #include "i2cdev.h"
 
@@ -244,6 +245,7 @@ void PPP_IRQHandler(void)
 //	extiInterruptHandler();
 //}
 
+
 /**
   * I2C
   */
@@ -270,6 +272,12 @@ void DMA1_Stream7_IRQHandler(void)
 /**
   * @}
   */ 
-
+/**
+  * ADC DMA
+  */
+void DMA2_Stream0_IRQHandler(void)
+{
+	adcInterruptHandler();
+}
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

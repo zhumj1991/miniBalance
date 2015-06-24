@@ -37,37 +37,37 @@ static char wifiRecvData[64] = {'\0'};
 
 static void wifilinkInit(void)
 {
-	sprintf(wifiSendData, "AT+RST\n");
-	esp8266SendData((uint8_t *)wifiSendData, strlen(wifiSendData));
-	esp8266GetDataWithTimout((uint8_t *)wifiRecvData);
-	
-	sprintf(wifiSendData, "AT+CWMODE=2\n");
-	esp8266SendData((uint8_t *)wifiSendData, strlen(wifiSendData));
-	esp8266GetDataWithTimout((uint8_t *)wifiRecvData);
-	
-	sprintf(wifiSendData, "AT+RST\n");
-	esp8266SendData((uint8_t *)wifiSendData, strlen(wifiSendData));
-	esp8266GetDataWithTimout((uint8_t *)wifiRecvData);
-	
-	sprintf(wifiSendData, "AT+CWSAP=\"ESP8266\",\"0123456789\",11,0\n");
-	esp8266SendData((uint8_t *)wifiSendData, strlen(wifiSendData));
-	esp8266GetDataWithTimout((uint8_t *)wifiRecvData);
-	
-	sprintf(wifiSendData, "AAT+ CIPMUX=1\n");
-	esp8266SendData((uint8_t *)wifiSendData, strlen(wifiSendData));
-	esp8266GetDataWithTimout((uint8_t *)wifiRecvData);
-	
-	sprintf(wifiSendData, "AT+CIPSERVER=1,8080\n");
-	esp8266SendData((uint8_t *)wifiSendData, strlen(wifiSendData));
-	esp8266GetDataWithTimout((uint8_t *)wifiRecvData);
+
 }
 
+static unsigned char buf[20] = {0}, len;
 static void wifilinkTask(void * arg)
 {
-	wifilinkInit();
+	unsigned char id;
+	esp8266Reset();
+	esp8266ModeChoose(STA);
+	
+	while(esp8266JoinAP("cubesat","cubesatb215215"));
+	
+	esp8266EnableMultiId(true);
+//	esp8266StartOrShutServer(1, 8080, 3000);
+//	id = esp8233CIPStatus();
+	
+	while(!(esp8233LinkServer("TCP", "192.168.1.110", 8080, 0) ||
+					esp8233LinkServer("TCP", "192.168.1.110", 8080, 1) ||
+					esp8233LinkServer("TCP", "192.168.1.110", 8080, 2) ||
+					esp8233LinkServer("TCP", "192.168.1.110", 8080, 3) ||
+					esp8233LinkServer("TCP", "192.168.1.110", 8080, 4)))
+	{
+		vTaskDelay(100);
+	}
+	
+	ledseqRun(LED_GREEN, seq_linkup);
 	
 	while(1)
   {
+		esp8266SendData(0, 0, "helloworld", 10);
+		esp8266ReceiveData(0, buf, &len);
 		vTaskDelay(1000);
 	}
 }
@@ -83,7 +83,7 @@ void wifiInit()
 
     /* Launch the Radio link task */
   xTaskCreate(wifilinkTask, (const char * )"WiFiLink",
-              configMINIMAL_STACK_SIZE, NULL, /*priority*/1, NULL);
+              configMINIMAL_STACK_SIZE, NULL, /*priority*/4, NULL);
 
   isInit = true;
 }

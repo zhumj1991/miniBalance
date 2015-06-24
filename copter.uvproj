@@ -490,6 +490,11 @@
               <FileType>1</FileType>
               <FilePath>.\drivers\src\esp8266.c</FilePath>
             </File>
+            <File>
+              <FileName>adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\drivers\src\adc.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -509,6 +514,11 @@
               <FileName>uartWiFilnk.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\hal\src\uartWiFilnk.c</FilePath>
+            </File>
+            <File>
+              <FileName>pm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\hal\src\pm.c</FilePath>
             </File>
           </Files>
         </Group>

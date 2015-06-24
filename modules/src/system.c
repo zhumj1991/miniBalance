@@ -25,34 +25,32 @@
 #include "semphr.h"
 
 #include "ledseq.h"
-#include "ov7670.h"
+#include "pm.h"
+#include "system.h"
 
 #include "uart_syslink.h"
 #include "comm.h"
 #include "stabilizer_balance.h"
+
+/* Private variable */
+static bool canFly;
 
 static bool isInit;
 
 /* System wide synchronisation */
 xSemaphoreHandle canStartMutex;
 
-/* Global system variables */
-void systemStart(void)
+
+/* Private functions */
+static void systemTask(void *arg);
+
+/* Public functions */
+void systemLaunch(void)
 {
-  xSemaphoreGive(canStartMutex);
+  xTaskCreate(systemTask, (const char *)"SYSTEM",
+              2*configMINIMAL_STACK_SIZE, NULL, /*Piority*/ 2, NULL);
+
 }
-
-void systemWaitStart(void)
-{
-  //This permits to guarantee that the system task is initialized before other
-  //tasks waits for the start event.
-  while(!isInit)
-    vTaskDelay(2);
-
-  xSemaphoreTake(canStartMutex, portMAX_DELAY);
-  xSemaphoreGive(canStartMutex);
-}
-
 
 /* This must be the first module to be initialized! */
 void systemInit(void)
@@ -63,7 +61,9 @@ void systemInit(void)
   canStartMutex = xSemaphoreCreateMutex();
   xSemaphoreTake(canStartMutex, portMAX_DELAY);
 	
+	adcInit();
 	ledseqInit();
+	pmInit();
 	
   isInit = true;
 }
@@ -72,9 +72,9 @@ bool systemTest()
 {
   bool pass=isInit;
   
-//  pass &= adcTest();
+  pass &= adcTest();
   pass &= ledseqTest();
-//  pass &= pmTest();
+  pass &= pmTest();
 //  pass &= workerTest();
   
   return pass;
@@ -105,18 +105,53 @@ void systemTask(void *arg)
 	}
 	else
   {
-    
+    if (systemTest())
+    {
+      while(1)
+      {
+        ledseqRun(LED_RED, seq_testPassed); //Red passed == not passed!
+        vTaskDelay(M2T(2000));
+      }
+    }
+    else
+    {
+      ledInit();
+      ledSet(LED_RED, true);
+    }
   }
 	
+	pmSetChargeState(charge500mA);
+	
+	//Should never reach this point!
 	while(1)
     vTaskDelay(portMAX_DELAY);
 	
 }
 
-/* Public functions */
-void systemLaunch(void)
-{
-  xTaskCreate(systemTask, (const char *)"SYSTEM",
-              2*configMINIMAL_STACK_SIZE, NULL, /*Piority*/ 2, NULL);
 
+/* Global system variables */
+void systemStart(void)
+{
+  xSemaphoreGive(canStartMutex);
+}
+
+void systemWaitStart(void)
+{
+  //This permits to guarantee that the system task is initialized before other
+  //tasks waits for the start event.
+  while(!isInit)
+    vTaskDelay(2);
+
+  xSemaphoreTake(canStartMutex, portMAX_DELAY);
+  xSemaphoreGive(canStartMutex);
+}
+
+void systemSetCanFly(bool val)
+{
+  canFly = val;
+}
+
+bool systemCanFly(void)
+{
+  return canFly;
 }

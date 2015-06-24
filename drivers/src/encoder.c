@@ -64,15 +64,15 @@
 
 // HW defines
 /* M1 Encoder */
-#define ENCODER_M1_TIM_PERIF				RCC_APB1Periph_TIM2
-#define ENCODER_M1_TIM					    TIM2
-#define ENCODER_M1_TIM_DBG  				DBGMCU_TIM2_STOP
+#define ENCODER_M1_TIM_PERIF				RCC_APB1Periph_TIM5
+#define ENCODER_M1_TIM					    TIM5
+#define ENCODER_M1_TIM_DBG  				DBGMCU_TIM5_STOP
 
 #define ENCODER_M1_GPIO_PERIF				RCC_AHB1Periph_GPIOA
 #define ENCODER_M1_GPIO_PORT				GPIOA
-#define ENCODER_M1_GPIO_0						GPIO_Pin_0	// T2_CH1
-#define ENCODER_M1_GPIO_1						GPIO_Pin_1	// T2_CH2
-#define ENCODER_M1_GPIO_AF					GPIO_AF_TIM2
+#define ENCODER_M1_GPIO_0						GPIO_Pin_0	// T5_CH1
+#define ENCODER_M1_GPIO_1						GPIO_Pin_1	// T5_CH2
+#define ENCODER_M1_GPIO_AF					GPIO_AF_TIM5
 #define	ENCODER_M1_GPIO_AF_PIN_0		GPIO_PinSource0
 #define	ENCODER_M1_GPIO_AF_PIN_1		GPIO_PinSource1
 

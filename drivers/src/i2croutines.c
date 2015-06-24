@@ -333,12 +333,12 @@ void I2C_LowLevel_Init(I2C_TypeDef* I2Cx)
   if (I2Cx == I2C1)
   {
 		 /* GPIOB clock enable */
-		RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);
+		RCC_AHB1PeriphClockCmd(I2CDEV_I2C1_GPIO_PERIF, ENABLE);
     /* I2C1 clock enable */
     RCC_APB1PeriphClockCmd(RCC_APB1Periph_I2C1, ENABLE);
 		
-		GPIO_PinAFConfig(I2CDEV_I2C1_GPIO, GPIO_PinSource6, GPIO_AF_I2C1);
-		GPIO_PinAFConfig(I2CDEV_I2C1_GPIO, GPIO_PinSource7, GPIO_AF_I2C1);
+		GPIO_PinAFConfig(I2CDEV_I2C1_GPIO, I2CDEV_I2C1_PIN_SDA_AF, GPIO_AF_I2C1);
+		GPIO_PinAFConfig(I2CDEV_I2C1_GPIO, I2CDEV_I2C1_PIN_SCL_AF, GPIO_AF_I2C1);
 		/* I2C1 SDA configuration */
 		GPIO_InitStructure.GPIO_Pin = I2CDEV_I2C1_PIN_SDA;
 		GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
@@ -368,12 +368,12 @@ void I2C_LowLevel_Init(I2C_TypeDef* I2Cx)
   else /* I2Cx = I2C2 */
   {
 		/* GPIOH clock enable */
-		RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOH, ENABLE);
+		RCC_AHB1PeriphClockCmd(I2CDEV_I2C2_GPIO_PERIF, ENABLE);
     /* I2C2 clock enable */
     RCC_APB1PeriphClockCmd(RCC_APB1Periph_I2C2, ENABLE);
 	
-		GPIO_PinAFConfig(I2CDEV_I2C2_GPIO, GPIO_PinSource4, GPIO_AF_I2C2);
-		GPIO_PinAFConfig(I2CDEV_I2C2_GPIO, GPIO_PinSource5, GPIO_AF_I2C2);
+		GPIO_PinAFConfig(I2CDEV_I2C2_GPIO, I2CDEV_I2C2_PIN_SDA_AF, GPIO_AF_I2C2);
+		GPIO_PinAFConfig(I2CDEV_I2C2_GPIO, I2CDEV_I2C2_PIN_SCL_AF, GPIO_AF_I2C2);
 
 		/* I2C1 SDA configuration */
 		GPIO_InitStructure.GPIO_Pin = I2CDEV_I2C2_PIN_SDA;

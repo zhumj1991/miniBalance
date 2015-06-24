@@ -114,14 +114,14 @@ void imu6Init(void)
   if(isInit)
     return;
 
- isHmc5883lPresent = false;
+// isHmc5883lPresent = false;
 // isMs5611Present = false;
 
   /* Wait for sensors to startup */
   while (xTaskGetTickCount() < M2T(IMU_STARTUP_TIME_MS));
 
-  i2cdevInit(I2C2);
-  mpu6050Init(I2C2);
+  i2cdevInit(I2C1);
+  mpu6050Init(I2C1);
   if (mpu6050TestConnection() == true)
   {
     //DEBUG_PRINT("MPU6050 I2C connection [OK].\n");
@@ -166,8 +166,8 @@ void imu6Init(void)
 #endif
 
 
-//#ifdef IMU_ENABLE_MAG_HMC5883
-  hmc5883lInit(I2C2);
+#ifdef IMU_ENABLE_MAG_HMC5883
+  hmc5883lInit(I2C1);
   if (hmc5883lTestConnection() == true)
   {
     isHmc5883lPresent = true;
@@ -177,10 +177,10 @@ void imu6Init(void)
   {
     //DEBUG_PRINT("HMC5883L I2C connection [FAIL].\n");
   }
-//#endif
+#endif
 
 #ifdef IMU_ENABLE_PRESSURE_MS5611
-  if (ms5611Init(I2C2) == true)
+  if (ms5611Init(I2C1) == true)
   {
     isMs5611Present = true;
     DEBUG_PRINT("MS5611 I2C connection [OK].\n");
@@ -224,15 +224,18 @@ bool imu6Test(void)
     testStatus = false;
   }
 #endif
+	
   if (testStatus)
   {
     isMpu6050TestPassed = mpu6050SelfTest();
     testStatus = isMpu6050TestPassed;
   }
+	
 #ifdef IMU_ENABLE_MAG_HMC5883
   if (testStatus && isHmc5883lPresent)
   {
-    isHmc5883lTestPassed = hmc5883lSelfTest();
+		isHmc5883lTestPassed = hmc5883lTestConnection();
+    //isHmc5883lTestPassed = hmc5883lSelfTest();
     testStatus = isHmc5883lTestPassed;
   }
 #endif
