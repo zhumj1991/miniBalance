@@ -25,7 +25,9 @@
 #ifndef __DATA_HANDLING_H__
 #define __DATA_HANDLING_H__
 
+#include <stdbool.h>
 #include "stm32f4xx.h"
+
 
 typedef struct _TransaPacket {
 	uint16_t header;
@@ -36,5 +38,9 @@ typedef struct _TransaPacket {
 
 #define BALANCE_HEADER		0xAAAA
 #define PC_HEADER					0xAAAF
+
+
+bool dataHandler(uint8_t *dataRecv, uint8_t *dataSend, uint8_t *dataSendLen);
+	
 
 #endif /* DATA_HANDLING */

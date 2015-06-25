@@ -276,7 +276,7 @@ bool esp8266BuildAP(char *ssid, char *password)
 {
 	char cmd[40];
 	
-	sprintf(cmd, "AT+CWSAP=\"%s\",\"%s\"", ssid, password);
+	sprintf(cmd, "AT+CWSAP=\"%s\",\"%s\",1,3", ssid, password);
 	
 	return esp8266Cmd(cmd, "OK", NULL);
 }
@@ -318,26 +318,14 @@ bool esp8266StartOrShutServer(bool mode, unsigned int port, unsigned int timeOve
 		return (esp8266Cmd(cmd1, "OK", NULL) &&
 						esp8266Cmd(cmd2, "OK", NULL));
 	}	else {
-		sprintf(cmd1, "AT+CIPSERVER=%d,%s", 0, port);
+		sprintf(cmd1, "AT+CIPSERVER=%d,%d", 0, port);
 
 		return esp8266Cmd(cmd1, "OK", NULL);
 	}
 }
-unsigned char esp8233CIPStatus(void)
+bool esp8233CIPStatus(void)
 {
-	char buf[80];
-	char *pStr = buf;
-	char id;
-	
-	esp8266UartPutString("AT+CIPSTATUS\r\n");
-	
-	memset(buf, 0, 80);
-	esp8266GetData((unsigned char *)buf);
-	
-	pStr = strstr(buf, "CIPSTATUS");
-	id = *(pStr+10);
-	
-	return atoi(&id);
+	return esp8266Cmd("AT+CIPSTATUS\r\n", "+CIPSTATUS:", NULL);
 }
 
 bool esp8266UnvarnishSend(void)
@@ -393,12 +381,11 @@ bool esp8266ReceiveData(unsigned char enableUnvarnishTx,
 		}
 	} else {
 		if(strstr(recvStr, "+IPD")) {
-			pRecvStr = strchr(recvStr, ':');
-			recvData = (unsigned char *)pRecvStr + 1;
-			
-			strncpy(temp, recvStr, pRecvStr - recvStr);
-			pRecvStr = strrchr(temp, ',');
-			*length = (unsigned char)atoi(pRecvStr);
+			pRecvStr = strchr(recvStr, ':');		
+			// length
+			*length = num - (pRecvStr - recvStr + 1);
+			//data
+			strncpy((char *)recvData, pRecvStr + 1, *length);
 		}
 	}
 

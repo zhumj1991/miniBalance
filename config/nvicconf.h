@@ -44,11 +44,13 @@
 
 // Priorities for Crazyflie 2.0
 #define NVIC_I2C_PRI          	4
-#define NVIC_UART_PRI         	6
-#define NVIC_TRACE_TIM_PRI    	7
-#define NVIC_ENCODER_PRI				8
-#define NVIC_ESP8266_UART_PRI		9
+#define NVIC_UART_PRI         	5
+#define NVIC_TRACE_TIM_PRI    	6
+#define NVIC_ENCODER_PRI				7
+
 #define NVIC_RADIO_PRI        	11
 #define NVIC_ADC_PRI          	12
+#define NVIC_ESP8266_UART_PRI		13
+
 
 #endif /* NVIC_CONF_H_ */

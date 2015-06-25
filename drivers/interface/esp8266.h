@@ -33,6 +33,8 @@ void esp8266Init(void);
 bool esp8266Test(void);
 
 bool esp8266UartGetDataWithTimout(uint8_t *c);
+void esp8266GetData(uint8_t *buf);
+
 void esp8266UartSendData(uint8_t* data, uint32_t size);
 
 void esp8266Isr(void);
@@ -46,7 +48,7 @@ bool esp8266BuildAP(char *ssid, char *password);
 bool esp8266EnableMultiId(bool multiLink);
 bool esp8233LinkServer(char *protocol, char *ip, unsigned int port, unsigned char id);
 bool esp8266StartOrShutServer(bool mode, unsigned int port, unsigned int timeOver);
-unsigned char esp8233CIPStatus(void);
+bool esp8233CIPStatus(void);
 bool esp8266UnvarnishSend(void);
 bool esp8266SendData(unsigned char enableUnvarnishTx, unsigned char id,
 					unsigned char *sendData, unsigned char length);

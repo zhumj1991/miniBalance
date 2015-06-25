@@ -77,7 +77,7 @@ void motorBack(TransPacket *dataPack)
 
 }
 
-bool dataHandler(uint8_t *dataRecv, uint8_t *dataSend)
+bool dataHandler(uint8_t *dataRecv, uint8_t *dataSend, uint8_t *dataSendLen)
 {
 	TransPacket *dataPack = (TransPacket *)dataRecv;
 	TransPacket *dataHandle = (TransPacket *)dataSend;
@@ -86,7 +86,7 @@ bool dataHandler(uint8_t *dataRecv, uint8_t *dataSend)
 		return false;
 
 	if(checkXor(&dataPack->dataBuf[0], dataPack->len, &dataPack->dataBuf[dataPack->len]))
-		return  false;
+		return false;
 	
 	dataHandle->header = dataPack->header;
 	
@@ -119,7 +119,7 @@ bool dataHandler(uint8_t *dataRecv, uint8_t *dataSend)
 			motorBack(dataHandle);
 			break;
 		case 0x15:
-			velocityPIDBack(dataHandle);
+//			velocityPIDBack(dataHandle);
 			break;
 		case 0x16:
 			turnPIDBack(dataHandle);
@@ -127,6 +127,8 @@ bool dataHandler(uint8_t *dataRecv, uint8_t *dataSend)
 	}
 	
 	generateXor(&dataHandle->dataBuf[0], dataHandle->len, &dataHandle->dataBuf[dataHandle->len]);
+	
+	*dataSendLen = dataHandle->len + 5;
 
 	return true;
 }
